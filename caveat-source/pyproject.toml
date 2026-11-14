@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caveat-recalls"
+version = "0.1.0"
+description = "Screen products against the public recall record, on a Relate graph, before you buy, sell or recommend them"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Omordia Wisdom" }]
+dependencies = ["relate-db>=1.0.1"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.2"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+caveat = "caveat.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["caveat*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
